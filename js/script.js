@@ -8,6 +8,8 @@ $(document).ready(function () {
    });
 
    fetchingHetchback();
+   fetchingBrands1();
+  
 });
 
 $('#hatchback-tab').click(function () {
@@ -158,4 +160,70 @@ function fetchingLuxury(){
       container.innerHTML = html;
    });
 
+}
+
+function fetchingBrands1(){
+   
+   fetch('..//json/brand-items-1.json').then(response => {
+      return response.json();
+   }).then(value =>{
+      let html = '';
+      value.forEach(data=>{
+         html += `
+         <div class="col-md-3 mb-3">
+            <div class="card">
+                <img class="img-fluid" alt="100%x280"
+                    src="${data.image}">
+            </div>
+        </div>
+         `
+      });
+      const container = document.getElementById('brand-items-1');
+      container.innerHTML = html;
+   });
+   fetchingBrands2();
+  
+}
+
+function fetchingBrands2(){
+   
+   fetch('..//json/brand-items-2.json').then(response => {
+      return response.json();
+   }).then(value =>{
+      let html = '';
+      value.forEach(data=>{
+         html += `
+         <div class="col-md-3 mb-3">
+            <div class="card">
+                <img class="img-fluid" alt="100%x280"
+                    src="${data.image}">
+            </div>
+        </div>
+         `
+      });
+      const container = document.getElementById('brand-items-2');
+      container.innerHTML = html;
+   });
+   fetchingBrands3()
+}
+
+function fetchingBrands3(){
+   
+   fetch('..//json/brand-items-3.json').then(response => {
+      return response.json();
+   }).then(value =>{
+      let html = '';
+      value.forEach(data=>{
+         html += `
+         <div class="col-md-3 mb-3">
+            <div class="card">
+                <img class="img-fluid" alt="100%x280"
+                    src="${data.image}">
+            </div>
+        </div>
+         `
+      });
+      const container = document.getElementById('brand-items-3');
+      container.innerHTML = html;
+   });
 }
